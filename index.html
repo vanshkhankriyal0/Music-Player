@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Website - Mini Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="https://youtube.com/@povpianist?si=74BMudQQmNbRPgWb" target="_blank">
+            <img src="Vianist-modified.png" class="logo">
+            </a>
+            <ul>
+    <li>
+        <img src="Beethoven.png" alt="Artist 1" class="artist-img">
+        <a href="#" data-src="Moonlight_Sonata.mp3">Sonata<br>Mvt 1</a>
+    </li>
+    <li>
+        <img src="Vivaldi.jpeg" alt="Artist 2" class="artist-img">
+        <a href="#" data-src="Winter.mp3">Four Season's<br>Winter</a>
+    </li>
+    <li>
+        <img src="Charlie.png" alt="Artist 3" class="artist-img">
+        <a href="#" data-src="We_don't_talk_anymore.mp3">We don't <br>talk anymore</a>
+    </li>
+    <li>
+        <img src="Chopin.png" alt="Artist 4" class="artist-img">
+        <a href="#" data-src="Ballade_no_1.mp3">Ballade<br>no-1</a>
+    </li>
+    <li>
+        <img src="Sam.png" alt="Artist 5" class="artist-img">
+        <a href="#" data-src="Special.mp3">Your Lie<br>in April</a>
+    </li>
+</ul>
+        </div>
+        <div class="content">
+            <div class="left-col">
+                <h1>Vianist<br>SaM<br>Pansh</h1>
+            </div>
+            <div class="right-col">
+                <p>Press Me!<br>And feel the<br>Magic.</p>
+                <img src="play-6-128.png" id="icon">
+            </div>
+        </div>
+
+    </div>
+
+    <audio id="mySong">
+
+        <source src="" type="audio/mp3">
+        
+    </audio>
+
+    <script>
+        var mySong = document.getElementById("mySong");
+        var icon = document.getElementById("icon");
+        var songLinks =document.querySelectorAll("ul li a");
+
+        var currentSongSrc = mySong.querySelector("source").src;
+
+        songLinks.forEach(function(link){
+    link.addEventListener("click", function(e){
+        e.preventDefault();
+
+        var songSrc = this.getAttribute("data-src");
+        if(songSrc !== currentSongSrc){
+            mySong.querySelector("source").src = songSrc;
+            mySong.load();  // reload audio element with new source
+            currentSongSrc = songSrc;
+            
+            // Change icon to play (because song is loaded but not playing yet)
+            icon.src = "play-6-128.png";
+            icon.classList.remove("playing");
+        }
+    });
+});
+
+        icon.onclick = function(){
+            if(mySong.paused){
+                mySong.play();
+                icon.src = "pause-128.png";
+                icon.classList.add("playing");
+            }
+            else{
+                mySong.pause();
+                icon.src = "play-6-128.png";
+                icon.classList.remove("playing")
+            }
+        }
+
+    </script>
+
+</body>
+</html>

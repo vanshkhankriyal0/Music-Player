@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background-image: url(band.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.navbar{
+    width: 88%;
+    margin: auto;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 120px;
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
+    transition: box-shadow 0.12s ease;
+}
+.logo:hover {
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1);
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: sans-serif;
+    transition: color 0.3s ease;
+}
+.navbar ul li a:hover {
+  color: #fd0ed5; /* bright purple glow on hover */
+}
+.content{
+    width: 100%;
+    position: absolute;
+    top: 30%;
+}
+.left-col{
+    margin-left: 6%;
+}
+.left-col h1{
+    font-size: 4rem;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    background: linear-gradient(135deg, #ffffff, #8350a4, #bc529c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: whitesmoke;
+    line-height: 1.2;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #8350a4, 0 0 30px #bc529c;
+    float: left;
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #8350a4, 0 0 30px #bc529c;
+  }
+  50% {
+    text-shadow: 0 0 20px #ffffff, 0 0 30px #8350a4, 0 0 40px #bc529c;
+  }
+  100% {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #8350a4, 0 0 30px #bc529c;
+  }
+}
+.right-col{
+    float: right;
+    margin-right: 6%;
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+}
+.right-col p{
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-right: 15px;
+}
+#icon{
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0 0 10px white);
+}
+
+#icon.playing {
+    filter: drop-shadow(0 0 20px white) brightness(1.2);
+    transform: scale(1.05);
+}
+
+@keyframes pulseGlow {
+    0% {
+        filter: drop-shadow(0 0 10px white);
+    }
+    50% {
+        filter: drop-shadow(0 0 25px white);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px white);
+    }
+}
+#icon.playing {
+    animation: pulseGlow 1.5s infinite;
+    transform: scale(1.05);
+}
+.artist-img {
+    display: block;
+    width: 80px; /* or any size you want */
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    transition: box-shadow 0.15s ease;
+}
+.artist-img:hover {
+    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.6); /* glowing effect */
+    transform: scale(1.25);
+    transition: box-shadow 0.20s ease;
+}
